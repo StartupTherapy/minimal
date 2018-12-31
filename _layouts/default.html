@@ -38,20 +38,46 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
+        
+        <h1>Latest Episodes</h1>
+          <ul>
+            {% for episode in site.episodes %}
+              <li>
+                <h2><a href="{{ episode.url }}">{{ episode.title }}</a></h2>
+                <p>{{ episode.excerpt }}</p>
+              </li>
+            {% endfor %}
+           </ul>
+        <br />
+        
+        <h1>Latest Posts</h1>
+          <ul>
+            {% for post in site.posts %}
+              <li>
+                <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p>{{ post.excerpt }}</p>
+              </li>
+            {% endfor %}
+        </ul>
       </header>
+      
       <section>
 
       {{ content }}
 
       </section>
+      
       <footer>
         {% if site.github.is_project_page %}
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
+      
     </div>
+    
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    
     {% if site.google_analytics %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -62,5 +88,7 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
+    
   </body>
+  
 </html>
